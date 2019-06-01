@@ -1,0 +1,8 @@
+﻿@model BannerViewModel
+
+<div>
+    <h1>@Html.Mercator().Field(Model, x => x.Title)</h1>
+    <p>@Html.Mercator().Field(Model, x => x.Description)</p>
+    @Html.Mercator().Field(Model, x => x.Image)
+    @Html.Mercator().Field(Model, x => x.Link)
+</div>

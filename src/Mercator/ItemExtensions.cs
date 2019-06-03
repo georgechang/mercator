@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using Mercator.Attributes;
+﻿using Mercator.Attributes;
 using Sitecore.Data;
 using Sitecore.Data.Fields;
 using Sitecore.Data.Items;
+using System.Linq;
+using System.Reflection;
 
 namespace Mercator
 {
@@ -23,26 +19,18 @@ namespace Mercator
 
             foreach (var property in properties)
             {
-                var attribute = property.GetCustomAttributes(typeof(SitecoreField)).FirstOrDefault() as SitecoreField;
+                if (!(property.GetCustomAttributes(typeof(SitecoreField)).FirstOrDefault() is SitecoreField attribute)) break;
 
-                if (attribute == null) break;
+                var constructor = property.PropertyType.GetConstructor(new[] { typeof(Field) });
 
-                property.SetValue(mappedObject, ID.TryParse(attribute.Identifier, out var itemId) ? GetFieldValue(item, itemId) : attribute.Identifier);
+                if (constructor == null) continue;
+
+                var field = ID.TryParse(attribute.Identifier, out var itemId) ? item.Fields[itemId] : item.Fields[attribute.Identifier];
+                var activator = LambdaHelper.GetActivator(constructor);
+                property.SetValue(mappedObject, activator(field));
             }
 
             return mappedObject;
-        }
-
-        private static object GetFieldValue(Item item, ID identifier)
-        {
-            switch (item.Fields[identifier].Type)
-            {
-                case "Image": return new ImageField(item.Fields[identifier]);
-            }
-        }
-
-        private static object GetFieldValue(Item item, string identifier)
-        {
         }
     }
 }

@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="Attributes\SitecoreField.cs" />
     <Compile Include="ItemExtensions.cs" />
+    <Compile Include="LambdaHelper.cs" />
     <Compile Include="MvcExtensions.cs" />
     <Compile Include="Helpers\MercatorHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

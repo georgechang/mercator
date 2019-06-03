@@ -1,8 +1,20 @@
 ﻿@model BannerViewModel
 
-<div>
-    <h1>@Html.Mercator().Field(Model, x => x.Title)</h1>
-    <p>@Html.Mercator().Field(Model, x => x.Description)</p>
-    @Html.Mercator().Field(Model, x => x.Image)
-    @Html.Mercator().Field(Model, x => x.Link)
-</div>
+    <div>
+        <!-- You can specify the model... -->
+        <h1>@Html.Mercator().Field(Model, x => x.Title)</h1>
+        <p>@Html.Mercator().Field(Model, x => x.Description)</p>
+
+        <!-- ...or you can let it infer from the @@Model declaration -->
+        @Html.Mercator().Field(x => x.Image)
+        @Html.Mercator().Field(x => x.Link)
+        
+        <!-- MVC helpers work of course -->
+        @Html.CheckBox("checkbox", Model.Checkbox.Checked)
+        
+        <!-- Normal Sitecore field types -->
+        @Model.Droplink.TargetItem.Name
+        
+        <!-- This is populated from the controller, not from Sitecore -->
+        <h4>@Model.SomeOtherNonSitecoreContent</h4>
+    </div>

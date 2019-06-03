@@ -1,5 +1,7 @@
 # Mercator 🗺
 
+[![Build Status](https://dev.azure.com/georgechang/Mercator/_apis/build/status/georgechang.mercator?branchName=master)](https://dev.azure.com/georgechang/Mercator/_build/latest?definitionId=6&branchName=master)
+
 A simple and lightweight mapper for Sitecore.
 
 You might be asking yourself, wait, **another** ORM for Sitecore? Why?

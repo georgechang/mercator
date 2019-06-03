@@ -13,6 +13,7 @@ namespace Mercator.Demo.Controllers
         public ActionResult Banner()
         {
             var bannerViewModel = RenderingContext.Current.Rendering.Item.Map<BannerViewModel>();
+            bannerViewModel.SomeOtherNonSitecoreContent = "Hello nurse!";
             return View(bannerViewModel);
         }
     }

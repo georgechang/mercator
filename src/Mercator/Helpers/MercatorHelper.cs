@@ -1,8 +1,6 @@
-﻿using Mercator.Attributes;
-using Sitecore.Mvc.Presentation;
+﻿using Sitecore.Data.Fields;
 using Sitecore.Web.UI.WebControls;
 using System;
-using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Web;
@@ -10,23 +8,34 @@ using System.Web.Mvc;
 
 namespace Mercator.Helpers
 {
-    public class MercatorHelper
+    public class MercatorHelper<T>
     {
-        private readonly HtmlHelper _htmlHelper;
+        private readonly HtmlHelper<T> _htmlHelper;
 
-        public MercatorHelper(HtmlHelper htmlHelper)
+        public MercatorHelper(HtmlHelper<T> htmlHelper)
         {
             _htmlHelper = htmlHelper;
         }
 
-        public IHtmlString Field<T>(T model, Expression<Func<T, object>> fieldFunc)
+        public IHtmlString Field(Expression<Func<T, CustomField>> fieldFunc)
         {
+            return Field(_htmlHelper.ViewData.Model, fieldFunc);
+        }
+
+        public IHtmlString Field(T model, Expression<Func<T, CustomField>> fieldFunc)
+        {
+            var property = fieldFunc.Compile()(model);
+
             var memberExpression = fieldFunc.Body as MemberExpression;
             var propertyInfo = memberExpression?.Member as PropertyInfo;
-            var sitecoreFieldAttributes = propertyInfo?.GetCustomAttributes(typeof(SitecoreField), false) as SitecoreField[];
-            var sitecoreFieldAttribute = sitecoreFieldAttributes?.FirstOrDefault<SitecoreField>();
+            if (propertyInfo == null) return null;
 
-            return new HtmlString(FieldRenderer.Render(RenderingContext.Current.Rendering.Item, sitecoreFieldAttribute?.Identifier));
+            if (Convert.ChangeType(property, propertyInfo.PropertyType) is CustomField propertyValue)
+            {
+                return propertyValue.InnerField.HasValue ? new HtmlString(FieldRenderer.Render(propertyValue.InnerField.Item, propertyValue.InnerField.Name)) : null;
+            }
+
+            return null;
         }
     }
 }

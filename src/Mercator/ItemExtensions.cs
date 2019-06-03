@@ -1,5 +1,6 @@
 ﻿using Mercator.Attributes;
 using Sitecore.Data;
+using Sitecore.Data.Fields;
 using Sitecore.Data.Items;
 using System.Linq;
 using System.Reflection;
@@ -20,7 +21,13 @@ namespace Mercator
             {
                 if (!(property.GetCustomAttributes(typeof(SitecoreField)).FirstOrDefault() is SitecoreField attribute)) break;
 
-                property.SetValue(mappedObject, ID.TryParse(attribute.Identifier, out var itemId) ? item.Fields[itemId] : item.Fields[attribute.Identifier]);
+                var constructor = property.PropertyType.GetConstructor(new[] { typeof(Field) });
+
+                if (constructor == null) continue;
+
+                var field = ID.TryParse(attribute.Identifier, out var itemId) ? item.Fields[itemId] : item.Fields[attribute.Identifier];
+                var activator = LambdaHelper.GetActivator(constructor);
+                property.SetValue(mappedObject, activator(field));
             }
 
             return mappedObject;

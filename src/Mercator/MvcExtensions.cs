@@ -1,15 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
+﻿using Mercator.Helpers;
 using System.Web.Mvc;
-using Mercator.Attributes;
-using Mercator.Helpers;
-using Sitecore.Data;
-using Sitecore.Data.Fields;
-using Sitecore.Data.Items;
-using Sitecore.Pipelines.RenderField;
 
 namespace Mercator
 {

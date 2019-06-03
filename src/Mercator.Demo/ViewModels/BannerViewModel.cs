@@ -10,10 +10,10 @@ namespace Mercator.Demo.ViewModels
     public class BannerViewModel
     {
         [SitecoreField("Title")]
-        public string Title { get; set; }
+        public TextField Title { get; set; }
 
         [SitecoreField("Description")]
-        public string Description { get; set; }
+        public TextField Description { get; set; }
 
         [SitecoreField("Image")]
         public ImageField Image { get; set; }

@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web;
-using System.Web.Mvc;
-using Mercator.Attributes;
+﻿using Mercator.Attributes;
 using Sitecore.Mvc.Presentation;
 using Sitecore.Web.UI.WebControls;
+using System;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Reflection;
+using System.Web;
+using System.Web.Mvc;
 
 namespace Mercator.Helpers
 {
@@ -19,10 +19,11 @@ namespace Mercator.Helpers
             _htmlHelper = htmlHelper;
         }
 
-        public IHtmlString Field<T>(T model, Func<T, object> fieldFunc)
+        public IHtmlString Field<T>(T model, Expression<Func<T, object>> fieldFunc)
         {
-            var property = fieldFunc(model);
-            var sitecoreFieldAttributes = typeof(T).GetProperty(nameof(property))?.GetCustomAttributes(typeof(SitecoreField), false) as SitecoreField[];
+            var memberExpression = fieldFunc.Body as MemberExpression;
+            var propertyInfo = memberExpression?.Member as PropertyInfo;
+            var sitecoreFieldAttributes = propertyInfo?.GetCustomAttributes(typeof(SitecoreField), false) as SitecoreField[];
             var sitecoreFieldAttribute = sitecoreFieldAttributes?.FirstOrDefault<SitecoreField>();
 
             return new HtmlString(FieldRenderer.Render(RenderingContext.Current.Rendering.Item, sitecoreFieldAttribute?.Identifier));

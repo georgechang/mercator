@@ -81,6 +81,6 @@ public class ComponentViewModel
 </div>
 ```
 
-#### What is this `@Html.Mercator().Field()` business? I thought you said there was no API!
+### What is this `@Html.Mercator().Field()` business? I thought you said there was no API!
 
 It's a helper. 😀 Think of it as a wrapper for `FieldRenderer.Render()`. It determines the appropriate field from the `[SitecoreField]` attribute and calls `FieldRenderer.Render()` for that field. No fuss, no muss.

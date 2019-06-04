@@ -22,7 +22,7 @@ namespace Mercator.Helpers
             return Field(_htmlHelper.ViewData.Model, fieldFunc);
         }
 
-        public IHtmlString Field(T model, Expression<Func<T, CustomField>> fieldFunc)
+        public IHtmlString Field<TModel>(TModel model, Expression<Func<TModel, CustomField>> fieldFunc)
         {
             var property = fieldFunc.Compile()(model);
 

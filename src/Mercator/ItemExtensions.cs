@@ -11,8 +11,11 @@ namespace Mercator
     {
         public static T Map<T>(this Item item) where T : new()
         {
-            var mappedObject = new T();
+            return Map(item, new T());
+        }
 
+        public static T Map<T>(this Item item, T mappedObject) where T : new()
+        {
             item.Fields.ReadAll();
 
             var properties = typeof(T).GetProperties();

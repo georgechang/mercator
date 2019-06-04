@@ -10,7 +10,7 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  solution: '**/*.sln'
+  solution: '**/Mercator.csproj'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
@@ -33,5 +33,5 @@ steps:
 - task: NuGetCommand@2
   inputs:
     command: 'pack'
-    packagesToPack: '**/Mercator.csproj'
+    packagesToPack: '$(solution)'
     versioningScheme: 'off'

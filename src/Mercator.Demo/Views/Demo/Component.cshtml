@@ -1,13 +1,13 @@
-﻿@model BannerViewModel
+﻿@model ComponentViewModel
 
     <div>
         <!-- You can specify the model... -->
-        <h1>@Html.Mercator().Field(Model, x => x.Title)</h1>
-        <p>@Html.Mercator().Field(Model, x => x.Description)</p>
+        <h1>@Html.Mercator().Field(Model, x => x.SingleLineText)</h1>
+        <p>@Html.Mercator().Field(Model, x => x.RichText)</p>
 
         <!-- ...or you can let it infer from the @@Model declaration -->
         @Html.Mercator().Field(x => x.Image)
-        @Html.Mercator().Field(x => x.Link)
+        @Html.Mercator().Field(x => x.GeneralLink)
         
         <!-- MVC helpers work of course -->
         @Html.CheckBox("checkbox", Model.Checkbox.Checked)

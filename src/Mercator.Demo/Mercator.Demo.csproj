@@ -102,7 +102,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Demo\Web.config" />
-    <Content Include="Views\Demo\Banner.cshtml" />
+    <Content Include="Views\Demo\Component.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Views\Demo\Layout.cshtml" />
     <None Include="Web.config" />
@@ -110,7 +110,7 @@
   <ItemGroup>
     <Compile Include="Controllers\DemoController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\BannerViewModel.cs" />
+    <Compile Include="ViewModels\ComponentViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

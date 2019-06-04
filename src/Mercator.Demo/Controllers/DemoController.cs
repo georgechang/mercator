@@ -1,20 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using Mercator.Demo.ViewModels;
+﻿using Mercator.Demo.ViewModels;
 using Sitecore.Mvc.Presentation;
+using System.Web.Mvc;
 
 namespace Mercator.Demo.Controllers
 {
     public class DemoController : Controller
     {
-        public ActionResult Banner()
+        public ActionResult Component()
         {
-            var bannerViewModel = RenderingContext.Current.Rendering.Item.Map<BannerViewModel>();
-            bannerViewModel.SomeOtherNonSitecoreContent = "Hello nurse!";
-            return View(bannerViewModel);
+            var componentViewModel = RenderingContext.Current.Rendering.Item.Map<ComponentViewModel>();
+            componentViewModel.SomeOtherNonSitecoreContent = "Hello nurse!";
+            return View(componentViewModel);
         }
     }
 }

@@ -35,5 +35,12 @@ steps:
 - task: NuGetCommand@2
   inputs:
     command: 'pack'
-    packagesToPack: 'src/Mercator/Mercator.nuspec'
+    packagesToPack: '$(Build.SourcesDirectory)/src/Mercator/Mercator.nuspec'
     versioningScheme: 'off'
+
+- task: NuGetCommand@2
+  inputs:
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+    nuGetFeedType: 'internal'
+    publishVstsFeed: '/e4ed4c0d-3e34-4eb0-adaf-b0980f9b59bf'

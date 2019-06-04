@@ -36,7 +36,10 @@ steps:
   inputs:
     command: 'pack'
     packagesToPack: '$(Build.SourcesDirectory)/src/Mercator/Mercator.nuspec'
-    versioningScheme: 'off'
+    versioningScheme: 'byPrereleaseNumber'
+    majorVersion: '1'
+    minorVersion: '0'
+    patchVersion: '0'
 
 - task: NuGetCommand@2
   inputs:

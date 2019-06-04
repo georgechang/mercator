@@ -10,7 +10,7 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  solution: '**/Mercator.csproj'
+  solution: '**/Mercator.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
@@ -20,7 +20,7 @@ steps:
 - task: NuGetCommand@2
   inputs:
     command: 'restore'
-    restoreSolution: 'src/Mercator/packages.config'
+    restoreSolution: '$(solution)'
     feedsToUse: 'config'
     nugetConfigPath: 'src/NuGet.config'
 

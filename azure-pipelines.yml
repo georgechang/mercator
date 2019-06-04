@@ -33,5 +33,5 @@ steps:
 - task: NuGetCommand@2
   inputs:
     command: 'pack'
-    packagesToPack: '$(solution)'
+    packagesToPack: 'src/Mercator/Mercator.nuspec'
     versioningScheme: 'off'

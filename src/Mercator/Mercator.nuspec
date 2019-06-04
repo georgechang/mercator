@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>Mercator</id>
+    <version>1.0.0-alpha</version>
+    <title>Mercator</title>
+    <authors>George Chang</authors>
+    <owners>georgechang</owners>
+    <projectUrl>https://github.com/georgechang/mercator</projectUrl>
+    <license type="expression">MIT</license>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A simple and lightweight mapper for Sitecore</description>
+    <releaseNotes>Initial alpha release.</releaseNotes>
+    <copyright>Copyright 2019 CHANGedConcepts</copyright>
+    <tags>sitecore mapper mvc types</tags>
+  </metadata>
+</package>

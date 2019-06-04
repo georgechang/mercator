@@ -19,7 +19,10 @@ steps:
 
 - task: NuGetCommand@2
   inputs:
-    restoreSolution: '$(solution)'
+    command: 'restore'
+    restoreSolution: 'src/Mercator/packages.config'
+    feedsToUse: 'config'
+    nugetConfigPath: 'src/NuGet.config'
 
 - task: VSBuild@1
   inputs:

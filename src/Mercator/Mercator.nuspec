@@ -14,4 +14,7 @@
     <copyright>Copyright 2019 CHANGedConcepts</copyright>
     <tags>sitecore mapper mvc types</tags>
   </metadata>
+  <files>
+    <file src="bin\Release\net471\Mercator.dll" target="lib\net471\Mercator.dll" />
+</files>
 </package>

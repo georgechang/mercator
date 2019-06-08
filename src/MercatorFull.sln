@@ -5,7 +5,13 @@ VisualStudioVersion = 16.0.28922.388
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mercator.Demo", "Mercator.Demo\Mercator.Demo.csproj", "{50A1696E-8756-4423-94E2-19E6336C2452}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mercator", "Mercator\Mercator.csproj", "{3AAE64FA-5221-43AA-9C5C-25E0A13DC972}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mercator", "Mercator\Mercator.csproj", "{3AAE64FA-5221-43AA-9C5C-25E0A13DC972}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{994D765D-8E28-45EA-A760-1B0AB5253C1F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{9A5732D9-FD09-4F7B-8DD9-0B117E7225F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mercator.BenchmarkTests", "Mercator.BenchmarkTests\Mercator.BenchmarkTests.csproj", "{137AF60C-230E-4AD0-BF41-221C2699C72C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,11 +27,20 @@ Global
 		{3AAE64FA-5221-43AA-9C5C-25E0A13DC972}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AAE64FA-5221-43AA-9C5C-25E0A13DC972}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3AAE64FA-5221-43AA-9C5C-25E0A13DC972}.Release|Any CPU.Build.0 = Release|Any CPU
+		{137AF60C-230E-4AD0-BF41-221C2699C72C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{137AF60C-230E-4AD0-BF41-221C2699C72C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{137AF60C-230E-4AD0-BF41-221C2699C72C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{137AF60C-230E-4AD0-BF41-221C2699C72C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{50A1696E-8756-4423-94E2-19E6336C2452} = {9A5732D9-FD09-4F7B-8DD9-0B117E7225F7}
+		{137AF60C-230E-4AD0-BF41-221C2699C72C} = {994D765D-8E28-45EA-A760-1B0AB5253C1F}
+	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8;packages\EnterpriseLibrary.TransientFaultHandling.Caching.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Data.6.0.1304.1\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.ServiceBus.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.WindowsAzure.Storage.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Configuration.6.0.1304.0\lib\NET45
 		SolutionGuid = {EBA8DB44-A16E-4C6A-9BB0-54C7520C6279}
 	EndGlobalSection
 EndGlobal

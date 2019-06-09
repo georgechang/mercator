@@ -8,8 +8,6 @@ using Sitecore.FakeDb;
 
 namespace Mercator.BenchmarkTests
 {
-    [ClrJob(baseline: true)]
-    [RankColumn]
     public class MercatorVsSitecoreApi
     {
         private Db _database;

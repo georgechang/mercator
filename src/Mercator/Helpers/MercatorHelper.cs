@@ -32,7 +32,7 @@ namespace Mercator.Helpers
 
             if (Convert.ChangeType(property, propertyInfo.PropertyType) is CustomField propertyValue)
             {
-                return propertyValue.InnerField.HasValue ? new HtmlString(FieldRenderer.Render(propertyValue.InnerField.Item, propertyValue.InnerField.Name)) : null;
+                return propertyValue.InnerField.InnerItem != null ? new HtmlString(FieldRenderer.Render(propertyValue.InnerField.Item, propertyValue.InnerField.Name)) : null;
             }
 
             return null;

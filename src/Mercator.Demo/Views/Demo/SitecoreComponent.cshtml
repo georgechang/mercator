@@ -1,0 +1,22 @@
+﻿
+@using Sitecore.Data.Fields
+@model SitecoreComponentViewModel
+
+    <div>
+        <!-- You can specify the model... -->
+        <h1>@Html.Sitecore().Field("SingleLineText", Model.Item)</h1>
+        <p>@Html.Sitecore().Field("RichText", Model.Item)</p>
+
+        <!-- ...or you can let it infer from the @@Model declaration -->
+        @Html.Sitecore().Field("Image", Model.Item)
+        @Html.Sitecore().Field("GeneralLink", Model.Item)
+        
+        <!-- MVC helpers work of course -->
+        @Html.CheckBox("checkbox", ((CheckboxField)Model.Item.Fields["Checkbox"]).Checked)
+        
+        <!-- Normal Sitecore field types -->
+        @(((ReferenceField)Model.Item.Fields["Droplink"]).TargetItem.Name)
+        
+        <!-- This is populated from the controller, not from Sitecore -->
+        <h4>@Model.SomeOtherNonSitecoreContent</h4>
+    </div>

@@ -6,9 +6,17 @@ namespace Mercator.Demo.Controllers
 {
     public class DemoController : Controller
     {
-        public ActionResult Component()
+        public ActionResult MercatorComponent()
         {
-            var componentViewModel = RenderingContext.Current.Rendering.Item.Map<ComponentViewModel>();
+            var componentViewModel = RenderingContext.Current.Rendering.Item.Map<MercatorComponentViewModel>();
+            componentViewModel.SomeOtherNonSitecoreContent = "Hello nurse!";
+            return View(componentViewModel);
+        }
+
+        public ActionResult SitecoreComponent()
+        {
+            var componentViewModel = new SitecoreComponentViewModel();
+            componentViewModel.Item = RenderingContext.Current.Rendering.Item;
             componentViewModel.SomeOtherNonSitecoreContent = "Hello nurse!";
             return View(componentViewModel);
         }

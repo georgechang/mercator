@@ -33,11 +33,16 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net471'">
-    <PackageReference Include="Sitecore.Kernel">
-      <Version>9.1.1</Version>
-    </PackageReference>
     <PackageReference Include="Sitecore.Mvc">
-      <Version>9.1.1</Version>
+      <Version>9.1.0</Version>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Sitecore.Kernel" Version="9.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Caching\" />
   </ItemGroup>
 </Project>
